@@ -1,0 +1,136 @@
+/*
+While styling your pages, using the following rules is required ( -0.5 point for each
+missing rule). [2.5 points]
+• Use a class selector
+• Use an ID selector
+• Use a pseudo-element OR pseudo-class
+• Use a Descendant Selector (e.g., div p)
+• Use a Child Selector (e.g., div > p)
+• Use an Adjacent Sibling Selector (e.g., div + p)
+• Use a General Sibling Selector (e.g., div ~ p) 
+
+Use Flexbox to arrange the layout of your pages to fit both a screen and a cellphone.
+[1.5 points] Note: use the toggle device toolbar to see how the pages look on a screen
+and on a cellphone.
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background-color: #f0f0f0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.header h2 {
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.posts {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.post-profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post-date {
+    font-size: 12px;
+    color: gray;
+}
+
+.post-body {
+    margin-bottom: 10px;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.post-footer {
+    text-align: right;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid #ccc;
+}
+
+
+.new_post_btn:hover, .home_btn:hover {
+    background-color: #7575753d;
+}
+a.home_btn, a.new_post_btn {
+    text-decoration: none;
+    color: inherit;
+    
+  }

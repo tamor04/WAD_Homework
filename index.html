@@ -1,0 +1,118 @@
+<!-- For the index.html page, it should contain at least 5 different posts. [1 point] -->
+
+<!-- Home and Add Post in the navigation bar should change their background color
+when you hover over them [0.5 point], and pressing on any of them should direct
+you to the corresponding HTML page. [0.5 point] -->
+
+<!-- Main page, I think 👍 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Page</title>
+    <link rel="stylesheet" href="src/css/index_style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h2><a href=index.html class="home_btn">Home</a> | <a href=addPost.html class="new_post_btn">Add Post</a></h2>
+            <div class="profile">
+                <img src="/img/banana_profile.png" alt="Profile" class="profile-icon">
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="posts">
+
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/img/bananaman1.jpg" alt="post_Profile1" class="post-profile-icon">
+                        <span class="post-date" id="post-date-1"></span>
+                        <p>Oct 20 2024</p>
+                    </div>
+
+                    <div class="post-body">
+                        <p>Tartu 2024</p>
+                        <img src="/img/tartu.jpg" alt="Tartu" class="post-image">
+                        
+                    </div>
+                    
+                    <div class="post-footer">
+                        <button class="like">👍</button>
+                    </div>
+                </div>
+
+            
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/img/boiii-banana-man-lol.gif" alt="post_Profile2" class="post-profile-icon">
+                        <span class="post-date" id="post-date-2"></span>
+                        <p>Oct 15 2024</p>
+                    </div>
+                    <div class="post-body">
+                        <p>Anyone knows in which room is the lab today?</p>
+                    </div>
+                    <div class="post-footer">
+                        <button class="like">👍</button>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/img/bananaman1.jpg" alt="post_Profile3" class="post-profile-icon">
+                        <span class="post-date" id="post-date-3"></span>
+                        <p>Aug 4 2024</p>
+                    </div>
+
+                    <div class="post-body">
+                        <p>*Ring* *Ring* *Ring* *Ring* Banana Phone</p>
+                    </div>
+                    
+                    <div class="post-footer">
+                        <button class="like">👍</button>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/img/boiii-banana-man-lol.gif" alt="post_Profile4" class="post-profile-icon">
+                        <span class="post-date" id="post-date-4"></span>
+                        <p>Jan 27 2024</p>
+                    </div>
+
+                    <div class="post-body">
+                        <p>It's in 2045</p>
+                    </div>
+
+                    <div class="post-footer">
+                        <button class="like">👍</button>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <img src="/img/bananaman1.jpg" alt="post_Profile4" class="post-profile-icon">
+                        <span class="post-date" id="post-date-4"></span>
+                        <p>Jan 5 2024</p>
+                    </div>
+
+                    <div class="post-body">
+                        <p>*Weird Noises*</p>
+                    </div>
+
+                    <div class="post-footer">
+                        <button class="like">👍</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Banana Footer</p>
+        </footer>
+    </div>
+</body>
+</html>
