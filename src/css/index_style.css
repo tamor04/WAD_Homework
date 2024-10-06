@@ -1,13 +1,13 @@
 /*
 While styling your pages, using the following rules is required ( -0.5 point for each
 missing rule). [2.5 points]
-• Use a class selector
-• Use an ID selector
-• Use a pseudo-element OR pseudo-class
-• Use a Descendant Selector (e.g., div p)
-• Use a Child Selector (e.g., div > p)
-• Use an Adjacent Sibling Selector (e.g., div + p)
-• Use a General Sibling Selector (e.g., div ~ p) 
+• Use a class selector  done
+• Use an ID selector    done
+• Use a pseudo-element OR pseudo-class      done
+• Use a Descendant Selector (e.g., div p)   done
+• Use a Child Selector (e.g., div > p)  done
+• Use an Adjacent Sibling Selector (e.g., div + p)  done
+• Use a General Sibling Selector (e.g., div ~ p)    done
 
 Use Flexbox to arrange the layout of your pages to fit both a screen and a cellphone.
 [1.5 points] Note: use the toggle device toolbar to see how the pages look on a screen
@@ -100,15 +100,24 @@ body {
 
 .post-body {
     margin-bottom: 10px;
+
+    
+    p::first-letter {
+        font-weight: bold;
+    }
+
+    + .post-footer {
+        text-align: left;
+    }
+}
+
+#post-body-purple {
+    color:purple
 }
 
 .post-image {
     width: 100%;
     border-radius: 10px;
-}
-
-.post-footer {
-    text-align: right;
 }
 
 .like-btn {

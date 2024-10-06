@@ -1,6 +1,81 @@
-/// For the addPage.html and login.html pages, they should contain the elements
+<!--- For the addPage.html and login.html pages, they should contain the elements
 shown in Figures 2 and 3, and pressing on the login and add post buttons should
 redirect to the index.html page. [2 point]
 
 /// A user should not be allowed to submit the login form content, if she/he did not
-fill in both fields (e.g., Email and Username). [0.5 point]
+fill in both fields (e.g., Email and Username). [0.5 point]  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="src/css/add_log_style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h2><a href=index.html class="home_btn">Home</a></h2>
+            <div class="profile">
+                <a href="login.html"  ><img src="/img/banana_profile.png" alt="Profile" class="profile-icon"></a>
+            </div>
+        </header>
+
+        <main class="main-content">
+
+            <div class="post">
+                                
+                <div class="post-body">
+                    
+                    <p1>Welcome to BananaIt</p1>
+                    <p2>Create an account</p2>
+                    <p3>or</p3>
+                    <p4>Please log in</p4>
+
+                    <form id="form" action="index.html">
+                        <textarea id="email" placeholder="Email"></textarea>
+                        <textarea id ="password" placeholder="Password"></textarea>
+                        <button id="login_btn" disabled>Log In</button>
+                    </form>
+
+                </div>
+    
+                <div class="addfile-btn">
+                    <p>Forgot password</p>
+                    
+                </div>
+                
+    
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const login_button = document.getElementById('login_btn');
+        const form = document.getElementById('form');
+
+        function checkFields(){
+            if (email.value.trim() !== "" && password.value.trim() !== ""){
+                login_button.disabled = false;
+            }
+            else { 
+                login_button.disabled = true;             
+            }
+        }
+
+        email.addEventListener('input', checkFields);
+        password.addEventListener('input', checkFields);
+
+        form.addEventListener('Log In', function(event) {
+            event.preventDefault();
+            window.location.href = "index.html"   
+        });
+        
+    </script>
+
+</body>
+</html>
