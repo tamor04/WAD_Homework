@@ -38,8 +38,7 @@ body {
 
 .main-content {
     flex-grow: 0;
-    padding: 90px;
-    padding-bottom: 0;
+    padding: 1vh 1vw;
     display: flex;
     justify-content: center;
 }
@@ -53,8 +52,8 @@ body {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    max-width: 90vw;
-    min-width: 50vw;
+    max-width: 90%;
+    min-width: 30%;
     width: auto;
 }
 
@@ -155,12 +154,11 @@ a.home_btn {
     }
 }
  
-.addfile-btn {
+.forgot_password-button {
     display: flex;
-    margin-bottom: 20px;
     justify-content: center;
-    width: 100%;
-    height: 70px;
+    width: auto;
+    height: auto;
     color: rgb(0, 0, 0); 
     border: none;
     border-radius: 5px;
@@ -172,24 +170,6 @@ a.home_btn {
     > p {
         font-weight: bold;
         color: #06caec;
-    }
-}
-
-.createpost-btn {
-    justify-content: center;
-    margin: 0 auto;
-
-    button {
-        width: 110%;
-        height: 30px;
-        background-color: #005092;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-size: 15px;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 }
 
