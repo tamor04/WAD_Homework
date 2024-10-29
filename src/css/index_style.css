@@ -26,11 +26,25 @@ body {
     background-color: #f0f0f0;
 }
 
+canvas {
+    position: fixed; /* Use fixed positioning to keep it in place */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    z-index: -1; /* Ensure it stays behind other content */
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+
 .container {
+    position: relative; /* Ensure it is positioned relative to the canvas */
+    z-index: 1; /* Higher than the canvas */
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
+
 
 .header {
     background-color: #f0f0f0;
@@ -144,4 +158,32 @@ a.home_btn, a.new_post_btn {
     text-decoration: none;
     color: inherit;
     
-  }
+}
+
+
+.profile{
+    display: flex;
+}
+
+.dropdown {
+    display: none; /* hidden by default */
+    position: relative;
+    align-content: left;
+    
+    top: 40px;
+    left: 40px;
+    background-color: rgb(179, 179, 179);
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 6px;
+
+    >p{
+        color: #545454;
+        padding: 2px;
+    }
+}
+
+.profile:hover .dropdown {
+    display: block; /* shows dropdown on hover */
+}

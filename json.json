@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "title": "Banana Smoothie Recipe",
+        "author": "Anna Bananason",
+        "content": "Try this refreshing banana smoothie to start your day!",
+        "create_date": "2023-06-15",
+        "profile_pic": "https://example.com/profile1.jpg",
+        "post_pic": "https://example.com/banana-smoothie.jpg", 
+        "like_btn": true
+    },
+    {
+        "id": 2,
+        "title": "Top Banana Facts",
+        "author": "Banana Joe",
+        "content": "Did you know bananas are berries? Let's dive into more fun facts!",
+        "create_date": "2023-10-12",
+        "profile_pic": "https://example.com/profile2.jpg",
+        "post_pic": "https://example.com/banana-facts.jpg", 
+        "like_btn": true
+    },
+    {
+        "id": 3,
+        "title": "Growing Bananas at Home",
+        "author": "Benny Bananas",
+        "content": "Here's a guide to growing your own banana plant at home.",
+        "create_date": "2024-02-19",
+        "profile_pic": "https://example.com/profile3.jpg",
+        "post_pic": "https://example.com/grow-bananas.jpg", 
+        "like_btn": false
+    },
+    {
+        "id": 4,
+        "title": "Banana Bread Secrets",
+        "author": "Betty Bananza",
+        "content": "Tips for making the perfect moist and flavorful banana bread.",
+        "create_date": "2023-12-01",
+        "profile_pic": "https://example.com/profile4.jpg",
+        "post_pic": "https://example.com/banana-bread.jpg", 
+        "like_btn": true
+    },
+    {
+        "id": 5,
+        "title": "Bananas in Art History",
+        "author": "Ban Gogh",
+        "content": "Exploring the use of bananas in famous artworks through history.",
+        "create_date": "2024-04-22",
+        "profile_pic": "https://example.com/profile5.jpg",
+        "post_pic": "https://example.com/banana-art.jpg", 
+        "like_btn": false
+    },
+    {
+        "id": 6,
+        "title": "Banana Nutrition Guide",
+        "author": "Dr. Banana Stein",
+        "content": "Everything you need to know about the nutritional value of bananas.",
+        "create_date": "2024-05-17",
+        "profile_pic": "https://example.com/profile6.jpg",
+        "post_pic": "https://example.com/banana-nutrition.jpg", 
+        "like_btn": true
+    },
+    {
+        "id": 7,
+        "title": "Banana Island Travel Tips",
+        "author": "Sunny Banana",
+        "content": "Dreaming of a tropical escape? Here’s a travel guide to Banana Island!",
+        "create_date": "2023-11-25",
+        "profile_pic": "https://example.com/profile7.jpg",
+        "post_pic": "https://example.com/banana-island.jpg", 
+        "like_btn": false
+    },
+    {
+        "id": 8,
+        "title": "How Bananas are Farmed",
+        "author": "Ban Farmer",
+        "content": "Ever wondered how bananas make it from the farm to your table?",
+        "create_date": "2024-07-10",
+        "profile_pic": "https://example.com/profile8.jpg",
+        "post_pic": "https://example.com/banana-farm.jpg", 
+        "like_btn": true
+    },
+    {
+        "id": 9,
+        "title": "Bananas in Popular Culture",
+        "author": "Bananarama",
+        "content": "Bananas have been a pop culture staple for years! Here’s why.",
+        "create_date": "2023-09-05",
+        "profile_pic": "https://example.com/profile9.jpg",
+        "post_pic": "https://example.com/banana-culture.jpg", 
+        "like_btn": false
+    },
+    {
+        "id": 10,
+        "title": "Banana Benefits for Skin",
+        "author": "Banana Beauty",
+        "content": "Discover how bananas can enhance your skincare routine naturally.",
+        "create_date": "2024-03-03",
+        "profile_pic": "https://example.com/profile10.jpg",
+        "post_pic": "https://example.com/banana-skin-care.jpg", 
+        "like_btn": true
+    }
+]

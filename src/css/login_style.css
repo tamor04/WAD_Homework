@@ -173,6 +173,40 @@ a.home_btn {
     }
 }
 
+
+
+
+.profile{
+    display: flex;
+}
+
+.dropdown {
+    display: none; /* hidden by default */
+    position: relative;
+    align-content: left;
+    
+    top: 40px;
+    left: 40px;
+    background-color: rgb(179, 179, 179);
+    border: 1px solid #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 6px;
+
+    >p{
+        color: #545454;
+        padding: 2px;
+    }
+}
+
+.profile:click .dropdown {
+    display: block; /* shows dropdown on hover */
+}
+
+
+
+
+
 @media (max-width: 1000px) {
 
     .post {
