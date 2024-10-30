@@ -1,8 +1,8 @@
 // Select the canvas and set up dimensions
 const canvas = document.getElementById("voronoiCanvas");
 const context = canvas.getContext("2d");
-const width = window.innerWidth;
-const height = window.innerHeight;
+let width = window.innerWidth;
+let height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 const voronoi = d3.voronoi().extent([[0, 0], [width, height]]);
@@ -143,6 +143,18 @@ document.addEventListener("mousemove", event => {
 
 document.addEventListener("mouseup", () => {
     draggedPoint = null;
+});
+
+// Resize event listener
+window.addEventListener('resize', () => {
+    // Update canvas dimensions
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    
+    // Update the Voronoi diagram extent
+    voronoi.extent([[0, 0], [width, height]]);
 });
 
 // Start the animation after the image is loaded
