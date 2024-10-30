@@ -1,69 +1,153 @@
-const canvas = document.getElementById('voronoiCanvas');
-const ctx = canvas.getContext('2d');
+// Select the canvas and set up dimensions
+const canvas = document.getElementById("voronoiCanvas");
+const context = canvas.getContext("2d");
+const width = window.innerWidth;
+const height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
+const voronoi = d3.voronoi().extent([[0, 0], [width, height]]);
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// Load banana image
+const bananaImage = new Image();
+bananaImage.src = 'img/banana.png'; // Ensure this path is correct
 
-// Initialize points and colors
-let points = createPoints(50, canvas.width, canvas.height);
-let colors = points.map(() => `hsl(${Math.random() * 360}, 100%, 80%)`);
-drawVoronoi();
-
-// Function to draw the Voronoi diagram
-function drawVoronoi() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-    for (let x = 0; x < canvas.width; x++) {
-        for (let y = 0; y < canvas.height; y++) {
-            let closestPointIndex = getClosestPointIndex(x, y);
-            ctx.fillStyle = colors[closestPointIndex];
-            ctx.fillRect(x, y, 1, 1); // Draw a 1x1 pixel at (x, y)
-        }
+// Generate a random banana-themed color
+function getRandomColor() {
+    const random = Math.random();
+    if (random < 0.5) {
+        const r = 255;
+        const g = Math.floor(220 + Math.random() * 35);
+        const b = Math.floor(Math.random() * 50);
+        return `rgba(${r}, ${g}, ${b}, 0.5)`;
+    } else if (random < 0.8) {
+        const r = Math.floor(150 + Math.random() * 50);
+        const g = 255;
+        const b = Math.floor(100 + Math.random() * 50);
+        return `rgba(${r}, ${g}, ${b}, 0.5)`;
+    } else {
+        const r = Math.floor(139 + Math.random() * 40);
+        const g = Math.floor(69 + Math.random() * 50);
+        const b = 19;
+        return `rgba(${r}, ${g}, ${b}, 0.5)`;
     }
 }
 
-// Function to get the closest point index
-function getClosestPointIndex(x, y) {
-    let closestIndex = -1;
-    let closestDistance = Infinity;
+/* Default color palette
+// Generate a random color
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgba(${r}, ${g}, ${b}, 0.5)`; // Semi-transparent for overlap effect
+}
+*/
 
-    points.forEach((point, index) => {
-        const dx = point.x - x;
-        const dy = point.y - y;
-        const distance = dx * dx + dy * dy; // Use squared distance for performance
-        if (distance < closestDistance) {
-            closestDistance = distance;
-            closestIndex = index;
+// Function to draw the banana image with rotation and maintaining aspect ratio
+function drawRotatedImage(image, x, y, width, height, angle) {
+    context.save(); // Save the current canvas state
+    context.translate(x, y); // Move to the center of the banana position
+    context.rotate(angle); // Rotate to match the angle of the Voronoi cell
+    context.drawImage(image, -width / 2, -height / 2, width, height); // Draw the image, centered
+    context.restore(); // Restore the canvas state
+}
+
+// Configuration with stored colors
+const numPoints = 50;
+const points = Array.from({ length: numPoints }, () => ({
+    position: [Math.random() * width, Math.random() * height],
+    velocity: [(Math.random() - 0.5) * 2, (Math.random() - 0.5) * 2],
+    color: getRandomColor(),
+    rotation: Math.random() * Math.PI * 2, // Random initial rotation angle
+    rotationDirection: Math.random() < 0.5 ? 1 : -1 // Randomize rotation direction (1 = clockwise, -1 = counterclockwise)
+}));
+
+// Track the currently dragged point
+let draggedPoint = null;
+
+// Animate points with smooth directional movement
+function animateVoronoi() {
+    context.clearRect(0, 0, width, height);
+
+    // Update each point’s position, velocity, and rotation for smoother movement
+    points.forEach(point => {
+        if (point !== draggedPoint) {
+            // Update velocity and position
+            point.velocity[0] += (Math.random() - 0.5) * 0.1;
+            point.velocity[1] += (Math.random() - 0.5) * 0.1;
+
+            const speed = Math.hypot(point.velocity[0], point.velocity[1]);
+            if (speed > 1) {
+                point.velocity[0] *= 0.9 / speed;
+                point.velocity[1] *= 0.9 / speed;
+            }
+
+            point.position[0] += point.velocity[0];
+            point.position[1] += point.velocity[1];
+
+            // Bounce off edges
+            if (point.position[0] < 0 || point.position[0] > width) point.velocity[0] *= -1;
+            if (point.position[1] < 0 || point.position[1] > height) point.velocity[1] *= -1;
+
+            // Update rotation angle based on rotation direction
+            point.rotation += 0.01 * point.rotationDirection; // Set a constant rotation speed
         }
     });
 
-    return closestIndex;
+    const diagram = voronoi(points.map(p => p.position));
+
+    // Draw each cell with its stored color
+    diagram.polygons().forEach((cell, i) => {
+        context.beginPath();
+        cell.forEach(([x, y], index) => {
+            if (index === 0) context.moveTo(x, y);
+            else context.lineTo(x, y);
+        });
+        context.closePath();
+
+        context.fillStyle = points[i].color; // Fill with color
+        context.fill();
+
+        // Get the centroid of the cell
+        const centroid = d3.polygonCentroid(cell);
+        const bananaSize = 50; // Set the desired size for the banana image
+
+        // Draw the banana image centered at the centroid, rotated
+        drawRotatedImage(bananaImage, centroid[0], centroid[1], bananaSize, bananaSize * (bananaImage.naturalHeight / bananaImage.naturalWidth), points[i].rotation);
+    });
+
+    requestAnimationFrame(animateVoronoi); // Continue animation
 }
 
-// Function to create initial random points
-function createPoints(numPoints, width, height) {
-    const points = [];
-    for (let i = 0; i < numPoints; i++) {
-        points.push({ x: Math.random() * width, y: Math.random() * height });
+// Event listeners for mouse interactions
+document.addEventListener("mousedown", event => {
+    const x = event.clientX;
+    const y = event.clientY;
+
+    draggedPoint = {
+        position: [x, y],
+        velocity: [0, 0],
+        color: getRandomColor(),
+        rotation: Math.random() * Math.PI * 2, // New point with random rotation
+        rotationDirection: Math.random() < 0.5 ? 1 : -1 // New point with random rotation direction
+    };
+
+    points.push(draggedPoint); // Add the new point to points array
+});
+
+document.addEventListener("mousemove", event => {
+    if (draggedPoint) {
+        draggedPoint.position[0] = event.clientX;
+        draggedPoint.position[1] = event.clientY;
     }
-    return points;
-}
-
-// Resize event
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    drawVoronoi(); // Redraw Voronoi when resized
 });
 
-// Click event to add new point
-document.addEventListener("click", (event) => {
-    const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    // Add new point at click location with a random color
-    points.push({ x: x, y: y });
-    colors.push(`hsl(${Math.random() * 360}, 100%, 80%)`); // Generate a new color for the new point
-
-    drawVoronoi(); // Redraw Voronoi with the updated points
+document.addEventListener("mouseup", () => {
+    draggedPoint = null;
 });
+
+// Start the animation after the image is loaded
+bananaImage.onload = () => {
+    animateVoronoi();
+};
+
+// made using D3.js and ChatGPT
