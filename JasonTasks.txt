@@ -3,30 +3,28 @@
         Hint: read point 6, otherwise, you may need to modify your JSON file when you reach it.
 
  DONE   2. Try to find an online free website for validating the correctness of the JSON file you have
-        just created, and use it to validate the JSON objects.                                             ---->>>  https://jsonlint.com
+        just created, and use it to validate the JSON objects.                                        ---->>>  https://jsonlint.com
 
  DONE   3. Try to find an online free website (endpoint) that allows you to store your JSON file online
         (endpoint). Many websites can host your JSON file and provide you with a Uniform Resource
-        Identifier (URI), which you can use to retrieve such information relying on Fetch API.             ---->>> <script src="https://gist.github.com/MihkelTonisson/41e636c391d568c3d7fd2731a346bff3.js"></script>
+        Identifier (URI), which you can use to retrieve such information relying on Fetch API.    ---->>> <script src="https://gist.github.com/MihkelTonisson/41e636c391d568c3d7fd2731a346bff3.js"></script>
 
-4. Write a code that can retrieve/fetch the posts information from the endpoint (URI) you
-created at task 3, and use such information to dynamically create the webpage shown in
-Figure 1. 
+DONE    4. Write a code that can retrieve/fetch the posts information from the endpoint (URI) you
+        created at task 3, and use such information to dynamically create the webpage shown in
+        Figure 1. 
 
-5. Integrate the JSON file into your project, and modify the Fetch code to retrieve/fetch the
-JSON objects information from it. . Note: do not delete the code related to fetching
-the data from the online source (task 4), just comment it out.
+ DONE  5. Integrate the JSON file into your project, and modify the Fetch code to retrieve/fetch the
+       JSON objects information from it. . Note: do not delete the code related to fetching
+       the data from the online source (task 4), just comment it out.
 
- DONE  6. You know that you can store only “text” in JSON files, try to find a solution for any photo    --->>> use the link of the pic
+ DONE  6. You know that you can store only “text” in JSON files, try to find a solution for any photo   --->>> use the link of the pic
        that your posts include. 
 
- SEMI-DONE  7. Extend the webpage by creating a dropdown menu that shows a user name, email, and
-            logout (Figure 2 and Figure 3). This list opens and then closes by clicking on the personal     --->>> Has to show when clicked (rn while hovering)
+ DONE  7. Extend the webpage by creating a dropdown menu that shows a user name, email, and
+            logout (Figure 2 and Figure 3). This list opens and then closes by clicking on the personal    --->>> Has to show when clicked (rn while hovering)
             photo. 
 
- SEMI-DONE  8. The overall styling of the page       --->>> Background pic, shadowing + maybe font?
-
-
+ DONE  8. The overall styling of the page       --->>> Background pic, shadowing + maybe font?
 
 
         AFTER DONE
